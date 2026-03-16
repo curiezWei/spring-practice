@@ -21,3 +21,8 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+
+# 忽略所有子项目里的 application.properties（如果不需要提交配置）
+**/application.properties
+# 或者只提交当前练习项目的，其他子项目的忽略
+demo/**/application.properties
