@@ -1,8 +1,8 @@
 package org.example.springmvc1;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
 @RequestMapping("/request")
 @RestController
 public class RequestController {
@@ -43,5 +43,24 @@ public class RequestController {
     @RequestMapping("/r6")
     public String r6(@RequestParam(value = "name",required = false)String userName) {
         return "name is "+userName;
+    }
+
+    //接收json
+    @RequestMapping("/r7")
+    public String r7(@RequestBody Person person) {
+        return "personal information: "+person;
+    }
+
+    //从路径中获取参数,url中不用带键值对
+    @RequestMapping("/r8/{id}/{name}")
+    public String r8(@PathVariable("id") Integer id,@PathVariable("name") String name) {
+        return "path var is "+ id+" "+name;
+    }
+
+    //上传文件
+    @RequestMapping("/r9")
+    public String r9(@RequestPart("file") MultipartFile imageFile) {
+        String fileName = imageFile.getOriginalFilename();
+        return fileName;
     }
 }
