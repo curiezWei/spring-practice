@@ -1,6 +1,7 @@
-package org.example.managebook;
+package org.example.managebook.Controller;
 
 import jakarta.servlet.http.HttpSession;
+import org.example.managebook.model.UserInfo;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

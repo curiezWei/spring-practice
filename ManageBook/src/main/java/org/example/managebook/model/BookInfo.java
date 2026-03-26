@@ -1,4 +1,4 @@
-package org.example.managebook;
+package org.example.managebook.model;
 
 import lombok.Data;
 

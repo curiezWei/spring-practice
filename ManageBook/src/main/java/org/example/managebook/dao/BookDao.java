@@ -1,18 +1,14 @@
-package org.example.managebook;
+package org.example.managebook.dao;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.example.managebook.model.BookInfo;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
-@RestController
-@RequestMapping("/book")
-public class BookController {
-    @RequestMapping("/getBookList")
-    public List<BookInfo> getBookList(){
-        List<BookInfo> bookInfoList = new ArrayList<>();
+public class BookDao {
+    public List<BookInfo> mockData(){
+        List<BookInfo> bookInfos = new ArrayList<>();
         for (int i = 0; i < 15; i++) {
             //没有数据库先写死
             BookInfo bookInfo = new BookInfo();
@@ -24,13 +20,13 @@ public class BookController {
             bookInfo.setPublisherName("出版社"+i);
             if(i%7==0){
                 bookInfo.setStatus(1);
-                bookInfo.setStatusCN("可借阅");
+//                bookInfo.setStatusCN("可借阅");
             }else{
                 bookInfo.setStatus(2);
-                bookInfo.setStatusCN("不可借阅");
+//                bookInfo.setStatusCN("不可借阅");
             }
-            bookInfoList.add(bookInfo);
+            bookInfos.add(bookInfo);
         }
-        return bookInfoList;
+        return bookInfos;
     }
 }
