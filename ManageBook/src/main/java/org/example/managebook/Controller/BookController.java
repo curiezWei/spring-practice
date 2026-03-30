@@ -14,7 +14,7 @@ import java.util.List;
 @RequestMapping("/book")
 public class BookController {
     @RequestMapping("/getBookList")
-    public List<BookInfo> getBookList(){
+    public List<BookInfo> getBookList() {
         BookService bookService = new BookService();
         return bookService.getBookList();
     }
