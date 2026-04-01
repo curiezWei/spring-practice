@@ -1,11 +1,13 @@
 package org.example.managebook.dao;
 
 import org.example.managebook.model.BookInfo;
+import org.springframework.stereotype.Repository;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
+@Repository
 public class BookDao {
     public List<BookInfo> mockData(){
         List<BookInfo> bookInfos = new ArrayList<>();
