@@ -1,6 +1,7 @@
 package org.example.managebook.dao;
 
 import org.example.managebook.model.BookInfo;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Repository;
 
 import java.math.BigDecimal;
@@ -9,9 +10,11 @@ import java.util.List;
 
 @Repository
 public class BookDao {
+    @Value("${book.pages.num}")
+    private Integer num;
     public List<BookInfo> mockData(){
         List<BookInfo> bookInfos = new ArrayList<>();
-        for (int i = 0; i < 15; i++) {
+        for (int i = 0; i < num; i++) {
             //没有数据库先写死
             BookInfo bookInfo = new BookInfo();
             bookInfo.setId(i);
