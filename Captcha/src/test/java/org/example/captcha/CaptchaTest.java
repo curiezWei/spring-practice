@@ -23,6 +23,5 @@ public class CaptchaTest {
         Console.log(lineCaptcha.getCode());
         //验证图形验证码的有效性，返回boolean值
         lineCaptcha.verify("1234");
-
     }
 }
