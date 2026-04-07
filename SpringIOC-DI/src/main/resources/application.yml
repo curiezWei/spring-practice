@@ -1,0 +1,22 @@
+server:
+  port: 9191
+
+mykey: aa
+
+mykey1:
+  key: bb
+
+student:
+  id: 114514
+  name: curiez
+  age: 20
+
+listtype:
+  name:
+    - shanyang
+    - curiez
+    - twilight
+  map:
+    shangyang: 19
+    curiez: 20
+    twillight: 21

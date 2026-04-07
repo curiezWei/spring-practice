@@ -10,11 +10,12 @@ import org.springframework.context.ApplicationContext;
 public class SpringIocDiApplication {
 
     public static void main(String[] args) {
-        ApplicationContext context = SpringApplication.run(SpringIocDiApplication.class, args);
-        DoComponent bean = (DoComponent) context.getBean("DoComponent");
-        bean.method();
-        UserController bean2 = (UserController) context.getBean("userController");
-        bean2.method();
+        SpringApplication.run(SpringIocDiApplication.class,args);
+//        ApplicationContext context = SpringApplication.run(SpringIocDiApplication.class, args);
+//        DoComponent bean = (DoComponent) context.getBean("DoComponent");
+//        bean.method();
+//        UserController bean2 = (UserController) context.getBean("userController");
+//        bean2.method();
     }
 
 }
