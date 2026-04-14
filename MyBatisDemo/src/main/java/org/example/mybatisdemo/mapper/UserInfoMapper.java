@@ -11,4 +11,5 @@ public interface UserInfoMapper {
 
     @Select("select * from user_info")
     List<UserInfo> getUserInfoList();
+
 }
