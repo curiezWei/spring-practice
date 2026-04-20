@@ -21,10 +21,8 @@ public interface UserInfoMapper {
     @Options(useGeneratedKeys = true , keyProperty = "id")
     @Insert("""
             insert into user_info (username, password, age, gender, phone)
-            values (#{username},#{password},#{age},#{gender},#{phone}))
+            values (#{username},#{password},#{age},#{gender},#{phone})
             """)
-
-
     Integer insert(UserInfo userInfo);
 
     @Delete("delete from user_info where id=#{id}")
