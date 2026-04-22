@@ -6,4 +6,6 @@ import org.example.mybatisdemo.model.UserInfo;
 @Mapper
 public interface UserInfoXMLMapper {
     Integer insert(UserInfo userInfo);
+
+    Integer insertComplex(UserInfo userInfo);
 }

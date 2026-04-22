@@ -6,4 +6,8 @@
         insert into userinfo (username, password, age, gender, phone) values (
         #{username}, #{password}, #{age},#{gender},#{phone})
     </insert>
+
+    <insert id="insertComplex">
+
+    </insert>
 </mapper>

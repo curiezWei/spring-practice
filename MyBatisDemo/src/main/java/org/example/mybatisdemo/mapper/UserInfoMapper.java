@@ -29,4 +29,20 @@ public interface UserInfoMapper {
     Integer delete(Integer id);
 
 
+    @Insert("""
+        <script>
+            INSERT INTO userinfo (username, `password`, age,
+            <if test="gender != null">gender,</if>
+            phone)
+            VALUES (
+                #{username},
+                #{password},
+                #{age},
+                <if test="gender != null">#{gender},</if>
+                #{phone}
+            )
+        </script>
+        """)
+    Integer insertComplex(UserInfo userInfo);
+
 }
