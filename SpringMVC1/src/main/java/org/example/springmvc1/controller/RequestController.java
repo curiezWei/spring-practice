@@ -1,5 +1,6 @@
-package org.example.springmvc1;
+package org.example.springmvc1.controller;
 
+import org.example.springmvc1.model.Person;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 

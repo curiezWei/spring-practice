@@ -75,7 +75,7 @@
               "对" +
               message.to +
               "说" +
-              message.say +
+              message.message +
               "</div>";
           }
           $(".container").append(finalHtml);
@@ -99,7 +99,7 @@
             //say:say
             from: $("#from").val(),
             to: $("#to").val(),
-            say: $("#say").val(),
+            message: $("#say").val(),
           },
           success: function (result) {
             if (result) {

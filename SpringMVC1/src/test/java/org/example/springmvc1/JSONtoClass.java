@@ -1,5 +1,6 @@
 package org.example.springmvc1;
 
+import org.example.springmvc1.model.Person;
 import tools.jackson.databind.ObjectMapper;
 
 public class JSONtoClass {
