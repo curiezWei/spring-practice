@@ -10,19 +10,17 @@ import java.util.List;
 
 @Repository
 public class BookDao {
-    @Value("${book.pages.num}")
-    private Integer num;
     public List<BookInfo> mockData(){
         List<BookInfo> bookInfos = new ArrayList<>();
-        for (int i = 0; i < num; i++) {
+        for (int i = 0; i < 10; i++) {
             //没有数据库先写死
             BookInfo bookInfo = new BookInfo();
             bookInfo.setId(i);
             bookInfo.setBookName("图书"+i);
             bookInfo.setAuthor("作者"+i);
-            bookInfo.setQuantity(i*2+2);
+            bookInfo.setCount(i*2+2);
             bookInfo.setPrice(new BigDecimal(i*3));
-            bookInfo.setPublisherName("出版社"+i);
+            bookInfo.setPublish("出版社"+i);
             if(i%7==0){
                 bookInfo.setStatus(1);
 //                bookInfo.setStatusCN("可借阅");
