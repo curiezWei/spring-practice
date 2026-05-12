@@ -1,7 +1,6 @@
 package org.example.managebook.Controller;
 
 import lombok.extern.slf4j.Slf4j;
-import org.example.managebook.dao.BookDao;
 import org.example.managebook.model.BookInfo;
 import org.example.managebook.model.PageRequest;
 import org.example.managebook.model.PageResult;
@@ -19,12 +18,6 @@ import java.util.List;
 public class BookController {
     @Autowired
     private BookService bookService;
-
-    @RequestMapping("/getBookList")
-    public List<BookInfo> getBookList() {
-        //BookService bookService = new BookService();
-        return bookService.getBookList();
-    }
 
     @RequestMapping("/addBook")
     public String addBook(BookInfo bookInfo)throws Exception {
@@ -50,6 +43,30 @@ public class BookController {
 
     @RequestMapping("/getBookListByPage")
     public PageResult<BookInfo> getBookListByPage(PageRequest pageRequest) {
+        log.info("查询图书页数 "+pageRequest);
         return bookService.getBookListByPage(pageRequest);
+    }
+
+    @RequestMapping("/queryBookById")
+    public BookInfo queryBookById(Integer bookId) {
+        log.info("查询图书信息" +bookId);
+        return bookService.queryBookById(bookId);
+    }
+
+    @RequestMapping("/updateBook")
+    public String updateBook(BookInfo bookInfo) {
+        log.info("更新图书"+bookInfo);
+        try {
+            Integer result =  bookService.updateBookById(bookInfo);
+            if(result>0) {
+                return "";
+            }
+            return "内部错误，请联系我";
+        }catch (Exception e) {
+            log.error("更新失败，e：",e);
+            return "内部错误，请联系我";
+        }
+
+
     }
 }

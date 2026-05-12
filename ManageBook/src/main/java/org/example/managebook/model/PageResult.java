@@ -11,5 +11,5 @@ import java.util.List;
 public class PageResult <T>{
     private List<T> records;
     private Integer count;
-
+    private PageRequest pageRequest;
 }
