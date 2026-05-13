@@ -59,10 +59,32 @@
     </div>
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script>
-        
+        $.ajax({
+            url:"book/queryBookById"+location.search,
+            type:"get",
+            success:function (book) {
+                $("#bookId").val(book.id);
+                $("#bookName").val(book.bookName);
+                $("#bookAuthor").val(book.author);
+                $("#bookStock").val(book.count);
+                $("#bookPrice").val(book.price);
+                $("#bookPublisher").val(book.publish);
+                $("#bookStatus").val(book.status);
+            }
+        });
         function update() {
-            alert("更新成功");
-            location.href = "book_list.html"
+            $.ajax({
+                url:"book/updateBook",
+                type:"post",
+                data:$("#updateBook").serialize(),
+                success:function (result) {
+                    if(result == "" ) {
+                        location.href = "book_list.html";
+                    }else {
+                        alert(result);
+                    }
+                }
+            });
         }
     </script>
 </body>

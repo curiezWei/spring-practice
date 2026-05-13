@@ -43,4 +43,11 @@ public class BookService {
     public Integer updateBookById(BookInfo bookInfo) {
         return bookMapper.updateBookById(bookInfo);
     }
+
+    public Integer deleteBookById(Integer bookId) {
+        BookInfo bookInfo = new BookInfo();
+        bookInfo.setId(bookId);
+        bookInfo.setStatus(0);
+        return bookMapper.updateBookById(bookInfo);
+    }
 }

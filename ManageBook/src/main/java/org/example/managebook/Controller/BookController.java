@@ -66,7 +66,24 @@ public class BookController {
             log.error("更新失败，e：",e);
             return "内部错误，请联系我";
         }
+    }
 
+    @RequestMapping("/deleteBook")
+    public String deleteBook(Integer bookId) {
+        log.info("更新图书" + bookId);
+        try {
+            Integer result = bookService.deleteBookById(bookId);
+            if (result > 0) {
+                return "";
+            }
+            return "内部错误，请联系我";
+        } catch (Exception e) {
+            log.error("更新失败，e：", e);
+            return "内部错误，请联系我";
+        }
+    }
 
+    public String batchDeleteBookByIds(List<Integer> ids) {
+        log.info("批量删除图书");
     }
 }
