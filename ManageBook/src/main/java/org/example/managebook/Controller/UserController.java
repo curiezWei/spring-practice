@@ -1,6 +1,7 @@
 package org.example.managebook.Controller;
 
 import jakarta.servlet.http.HttpSession;
+import org.example.managebook.constant.Constants;
 import org.example.managebook.model.UserInfo;
 import org.example.managebook.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +29,7 @@ public class UserController {
             return "密码错误";
         }
 
-        session.setAttribute("user_session_key", userInfo);
+        session.setAttribute(Constants.USER_SESSION_KEY, userInfo);
         return "";
     }
 }

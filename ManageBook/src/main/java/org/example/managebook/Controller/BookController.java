@@ -1,14 +1,15 @@
 package org.example.managebook.Controller;
 
+import jakarta.servlet.http.HttpSession;
 import lombok.extern.slf4j.Slf4j;
-import org.example.managebook.model.BookInfo;
-import org.example.managebook.model.PageRequest;
-import org.example.managebook.model.PageResult;
-import org.example.managebook.model.UserInfo;
+import org.example.managebook.constant.Constants;
+import org.example.managebook.constant.ResultStatus;
+import org.example.managebook.model.*;
 import org.example.managebook.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
@@ -42,9 +43,15 @@ public class BookController {
     }
 
     @RequestMapping("/getBookListByPage")
-    public PageResult<BookInfo> getBookListByPage(PageRequest pageRequest) {
+    public Result<PageResult<BookInfo>> getBookListByPage(PageRequest pageRequest, HttpSession session) {
         log.info("查询图书页数 "+pageRequest);
-        return bookService.getBookListByPage(pageRequest);
+//        UserInfo loginUserInfo = (UserInfo) session.getAttribute(Constants.USER_SESSION_KEY);
+//        if(loginUserInfo==null||loginUserInfo.getId()<0) {
+//            return Result.noLogin();
+//        }
+
+        PageResult<BookInfo> pageResult = bookService.getBookListByPage(pageRequest);
+        return Result.success(pageResult);
     }
 
     @RequestMapping("/queryBookById")
@@ -83,7 +90,19 @@ public class BookController {
         }
     }
 
-    public String batchDeleteBookByIds(List<Integer> ids) {
+    @RequestMapping("/batchDeleteBook")
+    public String batchDeleteBookByIds(@RequestParam List<Integer> ids) {
         log.info("批量删除图书");
+        Integer result = bookService.batchDeleteBookByIds(ids);
+        try{
+            if(result>0) {
+                return "";
+            } else {
+                return "内部错误，请联系我";
+            }
+        }catch (Exception e ) {
+            log.error("删除失败，e:"+e);
+            return "内部错误，请联系我";
+        }
     }
 }

@@ -32,5 +32,5 @@ select * from book_info where id = #{bookId};
 
     Integer updateBookById(BookInfo bookInfo);
 
-
+    Integer batchDeleteBookByIds(List<Integer> ids);
 }

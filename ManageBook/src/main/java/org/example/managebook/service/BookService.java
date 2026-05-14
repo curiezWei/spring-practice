@@ -50,4 +50,8 @@ public class BookService {
         bookInfo.setStatus(0);
         return bookMapper.updateBookById(bookInfo);
     }
+
+    public Integer batchDeleteBookByIds(List<Integer> ids) {
+        return bookMapper.batchDeleteBookByIds(ids);
+    }
 }
